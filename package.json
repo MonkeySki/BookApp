@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare-backend": "cd backend && npm install",
-    "prepare-react": "cd client && npm install",
-    "build-react": "cd client && npm run build",
-    "test-react": "cd client && npm test",
+    "prepare-backend": "npm install",
+    "prepare-react": "cd books-app && npm install",
+    "build-react": "cd books-app && npm run build",
+    "test-react": "cd books-app && npm test",
     "start": "node app.js",
     "app": "nodemon app.js",
     "heroku-postbuild": "npm run prepare-react && npm run build-react"
