@@ -45,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-// // cors
+// // cors hello
 // app.use(cors({ origin: true, credentials: true }));
 
 // // Init Middleware
