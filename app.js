@@ -1,13 +1,35 @@
-// app.js
+// const app = express();
 
 const express = require('express');
-const connectDB = require('./config/db');
-var cors = require('cors');
+const cors = require('cors');
+const connectDB = require('../config/db');
 
-// routes
+// // routes go here
+// const repo = require('./routes/api/Repo');
+// // routes
 const books = require('./routes/api/books');
+//
+//
+//
 
 const app = express();
+const port = process.env.PORT || 8080;
+
+// cors config - allow same origin
+const corsOptions = {
+  origin: true,
+  credentials: true,
+};
+
+// init cors
+app.use(cors(corsOptions));
+
+// init body parser
+app.use(express.json());
+
+// use routes here
+//app.use('/api/repo', repo);
+app.use('/api/books', books);
 
 // Connect Database
 connectDB();
@@ -23,15 +45,15 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-// cors
-app.use(cors({ origin: true, credentials: true }));
+// // cors
+// app.use(cors({ origin: true, credentials: true }));
 
-// Init Middleware
-app.use(express.json({ extended: false }));
+// // Init Middleware
+// app.use(express.json({ extended: false }));
 
-// use Routes
-app.use('/api/books', books);
+// // use Routes
+// app.use('/api/books', books);
 
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
