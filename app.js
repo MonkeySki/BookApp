@@ -2,7 +2,7 @@
 
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
+const connectDB = require('../config/db');
 
 // // routes go here
 // const repo = require('./routes/api/Repo');
@@ -35,9 +35,9 @@ app.use('/api/books', books);
 connectDB();
 if (process.env.NODE_ENV === 'production') {
   // serve front-end client from build folder
-  app.use(express.static(__dirname+'/../books-app/build'));
+  app.use(express.static(__dirname+'./books-app/build'));
   app.get('*', (req, res) =>{
-    res.sendFile(__dirname+'/../books-app/build/index.html')
+    res.sendFile(__dirname+'./books-app/build/index.html')
   });
   
 } else {
