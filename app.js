@@ -13,9 +13,9 @@ const app = express();
 connectDB();
 if (process.env.NODE_ENV === 'production') {
   // serve front-end client from build folder
-  app.use(express.static(__dirname+'/../client/build'));
+  app.use(express.static(__dirname+'/../books-app/build'));
   app.get('*', (req, res) =>{
-    res.sendFile(__dirname+'/../client/build/index.html')
+    res.sendFile(__dirname+'/../books-app/build/index.html')
   });
   
 } else {
@@ -28,8 +28,6 @@ app.use(cors({ origin: true, credentials: true }));
 
 // Init Middleware
 app.use(express.json({ extended: false }));
-
-app.get('/', (req, res) => res.send('Hello world!!!'));
 
 // use Routes
 app.use('/api/books', books);
