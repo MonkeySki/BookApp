@@ -1,16 +1,9 @@
-// const app = express();
-
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 
-// // routes go here
-// const repo = require('./routes/api/Repo');
-// // routes
+// routes
 const books = require('./routes/api/books');
-//
-//
-//
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -43,17 +36,5 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app.get('*', (req, res) => res.send(`API running on port ${port}`));
 }
-
-
-// // cors hello
-// app.use(cors({ origin: true, credentials: true }));
-
-// // Init Middleware
-// app.use(express.json({ extended: false }));
-
-// // use Routes
-// app.use('/api/books', books);
-
-// const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
