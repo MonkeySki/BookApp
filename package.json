@@ -13,7 +13,8 @@
     "app": "nodemon app.js",
     "heroku-postbuild": "npm run prepare-react && npm run build-react",
     "lint": "eslint ./books-app/src/**/*.{js,jsx}",
-    "lint:fix": "eslint ./books-app/src/**/*.{js,jsx} --fix"
+    "lint:fix": "eslint ./books-app/src/**/*.{js,jsx} --fix",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
