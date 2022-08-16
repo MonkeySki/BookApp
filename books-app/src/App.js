@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Routes
+          <Routes>
             <Route path='/' element={<ShowBookList></ShowBookList>} />
             <Route path='/create-book' element={<CreateBook></CreateBook>} />
             <Route path='/edit-book/:id' element={<UpdateBookInfo></UpdateBookInfo>} />
